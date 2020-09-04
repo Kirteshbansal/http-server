@@ -2,7 +2,7 @@ const http = require("http");
 const path = require("path");
 const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
-
+let uuid = uuidv4();
 const server = http.createServer((req, res) => {
   if (req.method == "GET") {
     let urlPath = req.url.split("/");
@@ -30,6 +30,12 @@ const server = http.createServer((req, res) => {
           res.end(content);
         }
       });
+    }
+    // UUID
+    else if (urlPath[1] == "uuid") {
+      content = uuid;
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ uuid: content }));
     }
   }
 });
