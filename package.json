@@ -1,0 +1,27 @@
+{
+  "name": "kirtesh-http-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/mountblue/cohort-13.1-js-sachin/kirtesh-bansal/kirtesh-http-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/mountblue/cohort-13.1-js-sachin/kirtesh-bansal/kirtesh-http-server/issues"
+  },
+  "homepage": "https://gitlab.com/mountblue/cohort-13.1-js-sachin/kirtesh-bansal/kirtesh-http-server#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "uuid": "^8.3.0"
+  }
+}
