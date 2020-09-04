@@ -37,6 +37,30 @@ const server = http.createServer((req, res) => {
       res.writeHead(200, { "Content-Type": "application/json" });
       res.end(JSON.stringify({ uuid: content }));
     }
+    // Status & Status code
+    else if (urlPath[1] == "status") {
+      switch (urlPath[2]) {
+        case "100":
+          var status = "Continue";
+          break;
+        case "200":
+          status = "OK";
+          break;
+        case "300":
+          status = "Multiple Choices";
+          break;
+        case "400":
+          status = "Bad Request";
+          break;
+        case "500":
+          status = "Internal Server Error";
+          break;
+      }
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(
+        JSON.stringify({ Status: `${status}`, "Status Code": `${urlPath[2]}` })
+      );
+    }
   }
 });
 
