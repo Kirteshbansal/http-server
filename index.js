@@ -61,6 +61,23 @@ const server = http.createServer((req, res) => {
         JSON.stringify({ Status: `${status}`, "Status Code": `${urlPath[2]}` })
       );
     }
+    //  Delay in status
+    else if (urlPath[1] == "delay") {
+      if (parseInt(urlPath[2]) === Number(urlPath[2])) {
+        setTimeout(() => {
+          return res.end(
+            `Responsing after ${urlPath[2] + " seconds"}` +
+              "\n\n" +
+              JSON.stringify({ Status: "OK", "Status Code": `${200}` })
+          );
+        }, parseInt(urlPath[2]) * 1000);
+      }else{
+        res.end(
+          `Responsing after ${0 + " seconds"}` +
+            "\n\n" +
+            JSON.stringify({ Status: "Bad Request", "Status Code": `${400}` }))
+      }
+    }
   }
 });
 
